@@ -1,6 +1,16 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import CharacterCard from './CharacterCard';
+import Styled from 'styled-components';
+
+const CardList = Styled.div`
+  display:flex;
+  justify-content:flex-start;
+  align-content:flex-start;
+  flex-wrap:wrap;
+  height:100%;
+
+`;
 
 
 
@@ -26,7 +36,7 @@ export default function CharacterList(props) {
   }, [props.searchTerm]);
 
   return (
-    <section className="character-list">
+    <CardList>
       <h2></h2>
       
       {console.log(char)}
@@ -34,13 +44,13 @@ export default function CharacterList(props) {
     
         char.map((char) => (
           
-          <CharacterCard key={char.id} name={char.name} />
+          <CharacterCard key={char.id} name={char.name} status={char.status} />
         
         ))
         
       
       }
       
-    </section>
+    </CardList>
   );
 }
